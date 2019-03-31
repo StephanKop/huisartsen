@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.rheigroep.demo"
+        versionCode = "10" 
+        version     = "0.0.1" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Huisartsen</name>
+
+    <description>
+        Huisartsen app
+    </description>
+
+    <author href="http://www.stephankop.nl" email="stephan.kop@outlook.com">
+        Stephan Kop 
+    </author>
+	
+	<platform name="android" >
+  		<preference name="orientation" value="portrait" />
+        <preference name="phonegap-version" value="cli-6.5.0" />
+		<preference name="fullscreen" value="false" />
+		<preference name="SplashScreen" value="huisartsen.jpg" />
+		<preference name="SplashScreenDelay" value="10000" />
+		<preference name="SplashMaintainAspectRatio" value="true" />
+	</platform>
+	<splash src="huisartsen.jpg" />
+	<icon src="huisartsen.jpg" />
+	
+	<gap:plugin name="cordova-plugin-splashscreen" source="npm" version="2.1.0" />
+    <plugin name="cordova-plugin-camera" spec="~2.1.1" />
+    <plugin name="cordova-plugin-geolocation" spec="~2.1.0" />
+	
+	
+
+	<access origin="http://code.jquery.com" subdomains="true" />
+</widget>

@@ -1,0 +1,460 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Huisartsen</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" type="text/css" href="./css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="./js/index.js"></script>
+    <script type = "text/javascript" language = "javascript"></script>
+</head> 
+<body> 
+
+<div data-role="page">
+        <div data-role="header" class="header">
+                <h1>De huisarts</h1>
+            </div><!-- /header -->
+        
+        <div data-role="content" class="title">
+            <h2>Aanmelden</h2>
+            <form action="#mainpage" method="POST" onSubmit="return submitForm">
+                <label class="ui-hidden-accessible">Gebruikersnaam</label>
+                <input type="text" name="username" placeholder="Gebruikersnaam"><br>
+                <label class="ui-hidden-accessible">Wachtwoord</label>
+                <input type="password" name="password" placeholder="Wachtwoord"><br>
+                <a href="#mainpage" class="login">Submit</a>
+                <!-- <input type="submit" value="submit"> -->
+            </form>
+        </div>
+
+        <div data-role="footer" class="footer">
+            <a href="#page9" class="emergency">SPOED</a>
+        </div>
+</div>
+
+<div data-role="page" id="mainpage">
+
+	<div data-role="header">
+        <h1>De huisarts</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" class="grid">		
+        <a href="#page2" data-role="button" class="mainbuttons">Chat met de arts</a>
+        <a href="#page3" data-role="button" class="mainbuttons">Consultaanvraag</a>
+        <a href="#page4" data-role="button" class="mainbuttons">Doorverwijzing</a>
+        <a href="#page5" data-role="button" class="mainbuttons">Bloedonderzoek</a>
+        <a href="#page6" data-role="button" class="mainbuttons">Berichten</a>
+        <a href="#page7" data-role="button" class="mainbuttons">EPD</a>
+        <a href="#page8" data-role="button" class="mainbuttons">Mijn medicijnen</a>
+        <a href="#page9" data-role="button" class="spoed" style="color:white; background-color:red">Spoed</a>				
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="page2">
+    <div data-role="header" class="header">
+        <a href="#" data-rel="back">Terug</a>
+        <h1>Chat met uw arts</h1>
+    </div>
+    <div data-role="content">
+        <div class="doctext">
+            <img src="https://kleingelderland.nl/uploads/2015/11/person-icon.png">
+            <!-- <div class="employee"></div></div> -->
+            <p>Goedendag hoe maakt u het?</p>
+        </div>
+        <div class="usertext">
+                <!-- <img src="https://kleingelderland.nl/uploads/2015/11/person-icon.png"> -->
+                <div class="employee"></divclass></div>
+                <p>Ik heb last van mijn gewrichten.</p>
+            </div>
+        <div class="message">
+        <a href="#" id="camerabtn" data-role="button" data-icon="camera"></a>  
+        <input type="text">
+        <input type="submit" value="Verzend" class="send">
+        <!-- <a href="#mainpage" data-role="button" data-icon="camera">Home</a> -->
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="page3">
+        <div data-role="header" class="header">
+            <a href="#" data-rel="back">Terug</a>
+            <h1>Consultaanvraag</h1>
+        </div>
+        <div data-role="content">
+
+            <form>
+                <label class="form">
+                     <input type="checkbox" name="checkbox-0 ">Kort consult
+                </label>
+                <label class="form">
+                     <input type="checkbox" name="checkbox-1 ">Lang consult
+                </label>
+                <label>Selecteer de datum</label>
+                    <input type="date" id="date_val" data-role="datebox" data-options='{"mode": "calbox", "useNewStyle":true}'>
+                <label>Reden van consult</label>
+                    <input type="text" data-role="textbox" class="multiline">
+                    <input type="submit" data-role="submit" value="Aanvragen" class="aanvraag">
+            </form>
+
+        </div>
+        <div data-role="footer" class="ui-bar">
+                <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                <a href="#" data-role="button" data-icon="info">help</a>
+                <a href="#profiel" data-role="button" data-icon="user">Profiel</a>
+            </div>
+    </div>
+
+<div data-role="page" id="page4">
+        <div data-role="header" class="header">
+            <a href="#" data-rel="back">Terug</a>
+            <h1>Doorverwijzing</h1>
+        </div>
+        <div data-role="content">
+            <form>
+                <label>Klacht</label>
+                <input type="text" data-role="textbox">
+                <label>Gewenste specialist</label>
+                <select name="specialisten" form="specialistform">
+                        <option value="cardioloog">Cardioloog</option>
+                        <option value="Oncoloog">Oncoloog</option>
+                        <option value="Chirurg">Chirurg</option>
+                        <option value="Radioloog">Radioloog</option>
+                      </select>
+                <label for="flip-select">Bent u al eerder behandeld voor deze klacht?</label>
+                    <select id="flip-select" name="flip-select" data-role="flipswitch">
+                        <option>Ja</option>
+                        <option>Nee</option>
+                    </select>
+                <label for="flip-select">Bent u al eerder bij deze specialist geweest?</label>
+                    <select id="flip-select" name="flip-select" data-role="flipswitch">
+                        <option>Ja</option>
+                        <option>Nee</option>
+                    </select>
+                <label for="flip-select">Wilt u vooraf contact met de arts hierover?</label>
+                    <select id="flip-select" name="flip-select" data-role="flipswitch">
+                        <option>Ja</option>
+                        <option>Nee</option>
+                    </select>
+                <input type="submit" data-role="submit" value="Aanvragen">
+            </form>
+        </div>
+        <div data-role="footer" class="ui-bar">
+                <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                <a href="#" data-role="button" data-icon="info">help</a>
+                <a href="#" data-role="button" data-icon="user">Profiel</a>
+            </div>
+    </div>
+        
+    <div data-role="page" id="page5">
+            <div data-role="header" class="header">
+                <a href="#" data-rel="back">Terug</a>
+                <h1>Bloedonderzoek</h1>
+            </div>
+            <div data-role="content">
+                    <form>
+                        <label>Doel onderzoek</label>
+                        <input type="text" data-role="textbox">
+                        <label>Onderzoeken op</label>
+                        <select name="specialisten" form="specialistform">
+                                <option value="Allergie">Allergie</option>
+                                <option value="Erfelijk">Erfelijk</option>
+                                <option value="Drugs">Drugs</option>
+                                <option value="Alcohol">Alcohol</option>
+                              </select>
+                        <label for="flip-select">Bent u hier al eerder op onderzocht?</label>
+                            <select id="flip-select" name="flip-select" data-role="flipswitch">
+                                <option>Ja</option>
+                                <option>Nee</option>
+                            </select>
+                        <label for="flip-select">Bent u hier al eerder voor bij de huisarts geweest?</label>
+                            <select id="flip-select" name="flip-select" data-role="flipswitch">
+                                <option>Ja</option>
+                                <option>Nee</option>
+                            </select>
+                        <label for="flip-select">Wilt u vooraf contact met de arts hierover?</label>
+                            <select id="flip-select" name="flip-select" data-role="flipswitch">
+                                <option>Ja</option>
+                                <option>Nee</option>
+                            </select>
+                        <input type="submit" data-role="submit" value="Aanvragen">
+                    </form>
+                </div>
+                <div data-role="footer" class="ui-bar">
+                        <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                        <a href="#" data-role="button" data-icon="info">help</a>
+                        <a href="#" data-role="button" data-icon="user">Profiel</a>
+                    </div>
+        </div>
+        
+    <div data-role="page" id="page6">
+            <div data-role="header" class="header">
+                <a href="#" data-rel="back">Terug</a>
+                <h1>Berichten</h1>
+            </div>
+
+            <div data-role="content">
+                <div data-role="collapsible" id="unread">
+                        <h4>Nieuwsbrief 6</h4>
+                        <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+                </div>
+                <div data-role="collapsible">
+                        <h4>Nieuwsbrief 5</h4>
+                        <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+                </div>
+                <div data-role="collapsible">
+                        <h4>Nieuwsbrief 4</h4>
+                        <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+                </div>
+                <div data-role="collapsible">
+                        <h4>Nieuwsbrief 3</h4>
+                        <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+                </div>
+                <div data-role="collapsible">
+                        <h4>Nieuwsbrief 2</h4>
+                        <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+                </div>
+                <div data-role="collapsible">
+                        <h4>Nieuwsbrief 1</h4>
+                        <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+                </div>
+            </div>
+            <div data-role="footer" class="ui-bar">
+                    <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                    <a href="#" data-role="button" data-icon="info">help</a>
+                    <a href="#" data-role="button" data-icon="user">Profiel</a>
+                </div>
+        </div>
+
+    <div data-role="page" id="page7">
+            <div data-role="header" class="header">
+                <a href="#" data-rel="back">Terug</a>
+                <h1>EPD</h1>
+            </div>
+            <div data-role="content">
+                    <div id = "stage" style = "background-color:#eee;">Houd deze data ten alle tijden tot u zelf</div>
+                    <input type = "button" id = "driver" value = "Load Data" />
+            </div>
+            <div data-role="footer" class="ui-bar">
+                    <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                    <a href="#" data-role="button" data-icon="info">help</a>
+                    <a href="#" data-role="button" data-icon="user">Profiel</a>
+                </div>
+        </div>
+
+        <div data-role="page" id="page8">
+            <div data-role="header" class="header">
+                <a href="#" data-rel="back">Terug</a>
+                <h1>Mijn Medicijnen</h1>
+            </div>
+
+            <div data-role="content">
+                <div data-role="collapsible" data-collapsed="true">
+                        <h4>Bloedverdunner</h4>
+                        <ul data-role="listview">
+                            <li><a href="#">Bijsluiter</a></li>
+                            <li><a href="#">Nieuw recept aanvragen</a></li>
+                            <li><a href="#">Vraag stellen over gebruik</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div data-role="collapsible" data-collapsed="true">
+                            <h4>Diclofenac</h4>
+                            <ul data-role="listview">
+                                <li><a href="#">Bijsluiter</a></li>
+                                <li><a href="#">Nieuw recept aanvragen</a></li>
+                                <li><a href="#">Vraag stellen over gebruik</a></li>
+                                <li><a href="#">FAQ</a></li>
+                            </ul>
+                        </div>
+                        <div data-role="collapsible" data-collapsed="true">
+                                <h4>Oxazepam</h4>
+                                <ul data-role="listview">
+                                    <li><a href="#">Bijsluiter</a></li>
+                                    <li><a href="#">Nieuw recept aanvragen</a></li>
+                                    <li><a href="#">Vraag stellen over gebruik</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                </ul>
+                            </div>
+            </div>
+            <div data-role="footer" class="ui-bar">
+                    <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                    <a href="#" data-role="button" data-icon="info">help</a>
+                    <a href="#" data-role="button" data-icon="user">Profiel</a>
+                </div>
+        </div>
+
+        <div data-role="page" id="page9">
+            <div data-role="header" class="header">
+                <a href="#" data-rel="back">Terug</a>
+                <h1>SPOED</h1>
+            </div>
+            <div data-role="content">
+                    <a href="#popupMenu" data-rel="popup" data-transition="slideup" class="spoedrood">HELP</a>
+                    <div data-role="popup" id="popupMenu" data-theme="b">
+                        <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                            <li data-role="list-divider">Kies een optie </li>
+                            <li><a href="#page10">Levensbedreigend</a></li>
+                            <li><a href="#page11">Niet levensbedreigend</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div data-role="footer" class="ui-bar">
+                        <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                        <a href="#" data-role="button" data-icon="info">help</a>
+                        <a href="#" data-role="button" data-icon="user">Profiel</a>
+                    </div>
+            </div>
+
+            <div data-role="page" id="page10">
+                <div data-role="header" class="header">
+                    <a href="#" data-rel="back">Terug</a>
+                    <h1>112 - hulpdiensten</h1>
+                </div>
+                <div data-role="content">
+                    <!-- <h1 class="noodnummer"> 112 wordt gebeld</h1> -->
+                    <a  rel="external" href="#" onclick="window.open('tel:221', '_system');" data-role="button">BEL 112 NU!</a>
+                </div>
+                <div data-role="footer" class="ui-bar">
+                        <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                        <a href="#" data-role="button" data-icon="info">help</a>
+                        <a href="#" data-role="button" data-icon="user">Profiel</a>
+                    </div>
+            </div>
+
+            <div data-role="page" id="page11">
+                <div data-role="header" class="header">
+                    <a href="#" data-rel="back">Terug</a>
+                    <h1>Zoek de juiste zorg</h1>
+                </div>
+                <div data-role="content">
+                    <form>
+                        <div class="ui-field-contain">
+                            <label for="select-native-1">Kies uw verwonding</label>
+                            <select name="select-native-1" id="select-native-1">
+                                <option value="1">Maak een keuze….</option>
+                                <option value="2">Botbreuk of ernstige verstuiking/kneuzing</option>
+                                <option value="3">Bloeding</option>
+                                <option value="4">Ernstige val</option>
+                                <option value="4">Hoofdletsel</option>
+                                <option value="4">Verbranding</option>
+                                <option value="4">Overdosis of vergiftiging</option>
+                                <option value="4">Bewusteloosheid</option>
+                                <option value="4">Hersenletsel</option>
+                                <option value="4">Onbekend en niet te achterhalen</option>
+                            </select>
+                        </div>
+                        </form>
+                        <form>
+                            <div class="ui-field-contain">
+                                <label for="select-native-1">Gebruikte middelen</label>
+                                <select name="select-native-1" id="select-native-1">
+                                    <option value="1">Maak een keuze….</option>
+                                    <option value="2">Alcohol</option>
+                                    <option value="2">Drugs</option>
+                                </select>
+                            </div>
+                            </form>
+                            <div>
+                                <a href="#page12" class="ui-btn">Het slachtoffer is mobiel en kan vervoer regelen</a>
+                                <a href="#page13" class="ui-btn">Het slachtoffer is niet mobiel en/of kan geen vervoer regelen</a>
+                            </div>
+                </div>
+                <div data-role="footer" class="ui-bar">
+                        <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                        <a href="#" data-role="button" data-icon="info">help</a>
+                        <a href="#" data-role="button" data-icon="user">Profiel</a>
+                    </div>
+            </div>
+
+            <div data-role="page" id="page12">
+                <div data-role="header" class="header">
+                    <a href="#" data-rel="back">Terug</a>
+                    <h1>Medische post</h1>
+                </div>
+                <div data-role="content" class="text">
+                    <h1> Ga naar deze medische post:</h1>
+                    <h2> Medische post Leiden<br>
+                        Breestraat 23<br>
+                        3467 BJ, Leiden</h2>
+                    <h3>Men is op de hoogte van uw komst</h3>
+                </div>
+                <div data-role="footer" class="ui-bar">
+                        <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                        <a href="#" data-role="button" data-icon="info">help</a>
+                        <a href="#" data-role="button" data-icon="user">Profiel</a>
+                    </div>
+            </div>
+
+            <div data-role="page" id="page13">
+                <div data-role="header" class="header">
+                    <a href="#" data-rel="back">Terug</a>
+                    <h1>Medische post</h1>
+                </div>
+                <div data-role="content">
+                    <label>Vul hier uw locatie in</label>
+                    <input type="text">
+                    <!-- <a href="#page14" class="login" onclick="getLocation()">Ik ben niet op een adres, ga naar de locatie van dit apparaat</a> -->
+                    <a class="login" onclick="getLocation()">Ik ben niet op een adres, ga naar de locatie van dit apparaat</a>
+                    <p id="demo"></p>
+                </div>
+                <div data-role="footer" class="ui-bar">
+                        <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                        <a href="#" data-role="button" data-icon="info">help</a>
+                        <a href="#" data-role="button" data-icon="user">Profiel</a>
+                    </div>
+            </div>
+
+            <div data-role="page" id="page14">
+                    <div data-role="header" class="header">
+                        <a href="#" data-rel="back">Terug</a>
+                        <h1>Hulp is onderweg</h1>
+                    </div>
+                    <div data-role="content">
+                        <img src="https://www.alientrick.com/media/1164/2018-08-27-16_40_45-oosterveldsingel-51-google-maps.png?anchor=center&mode=crop&width=1350&height=679&format=webp&quality=&rnd=131798615850000000">
+                    </div>
+                    <div data-role="footer" class="ui-bar">
+                            <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                            <a href="#" data-role="button" data-icon="info">help</a>
+                            <a href="#" data-role="button" data-icon="user">Profiel</a>
+                        </div>
+                </div>
+            
+                <div data-role="page" id="profiel">
+                        <div data-role="header" class="header">
+                            <a href="#" data-rel="back">Terug</a>
+                            <h1>Mijn profiel</h1>
+                        </div>
+                        <div role="content" class="ui-content">
+		
+                                <div class="ui-grid-b avatars">
+                                    <div class="ui-block-a"><a href="#" class="ui-shadow ui-btn ui-corner-all"><img class="avatar1" alt=""></a></div>  
+                                    <div class="ui-block-b"><a href="#" class="ui-shadow ui-btn ui-corner-all"><img class="avatar2" alt=""></a></div>
+                                    <div class="ui-block-c"><a href="#" class="ui-shadow ui-btn ui-corner-all"><img class="avatar3" alt=""></a></div>
+                                    <div class="ui-block-a"><a href="#" class="ui-shadow ui-btn ui-corner-all"><img class="avatar4" alt=""></a></div>  
+                                    <div class="ui-block-b"><a href="#" class="ui-shadow ui-btn ui-corner-all"><img class="avatar5" alt=""></a></div>
+                                    <div class="ui-block-c"><a href="#" class="ui-shadow ui-btn ui-corner-all"><img class="avatar6" alt=""></a></div>
+                                    <div class="ui-block-a"><a href="#" class="ui-shadow ui-btn ui-corner-all"><img class="avatar7" alt=""></a></div>  
+                                    <div class="ui-block-b"><a href="#" class="ui-shadow ui-btn ui-corner-all"><img class="avatar8" alt=""></a></div>
+                                    <div class="ui-block-c"><a href="#" class="ui-shadow ui-btn ui-corner-all"><img class="avatar9" alt=""></a></div>
+                                    <div class="ui-block-a"><a href="#" class="ui-shadow ui-btn ui-corner-all"><img class="avatar10" alt=""></a></div>  
+                                    <div class="ui-block-b"><a href="#" class="ui-shadow ui-btn ui-corner-all"><img class="avatar11" alt=""></a></div>
+                                    <div class="ui-block-c"><a href="#" class="ui-shadow ui-btn ui-corner-all"><img class="avatar12" alt=""></a></div>
+                                    
+                                </div>
+                        <div data-role="footer" class="ui-bar">
+                                <a href="#mainpage" data-role="button" data-icon="home">Home</a>
+                                <a href="#" data-role="button" data-icon="info">help</a>
+                                <a href="#" data-role="button" data-icon="user">Profiel</a>
+                            </div>
+                    </div>
+
+
+
+        </div>
+
+</body>
+</html>

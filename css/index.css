@@ -1,0 +1,381 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    /* background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    ); */
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    /* background:url(../img/logo.png) no-repeat center top; 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    /* top:50%; */
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.mainbuttons {
+    width: 11em;
+    height: 5em;
+    padding-top: 4em;
+    text-align: center;
+    color: white;
+    background-color: lightgrey;
+    font-size: 0.8em;
+    margin: 2em;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin: auto;
+    width: 70%;
+    background-color: rgb(226, 220, 220);
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+}
+
+#spoed {
+    margin-bottom: 0em;
+    height: 5em;
+}
+
+.footer a{
+    color: red;
+}
+
+#unread a {
+    background-color: rgb(107, 207, 115);
+    color: white;
+}
+
+#unread a:focus {
+    background-color: white;
+    color: black;
+}
+
+.spoed {
+    width: 11em;
+    height: 5em;
+    padding-top: 4em;
+    text-align: center;
+    color: white;
+    background: red;
+    font-size: 0.8em;
+    margin: 2em;
+}
+
+.spoedrood {
+    display: flex;
+    margin-top: 2em;
+    text-decoration: none;
+    background: red;
+    color: white;
+    font-size: 6.25em;
+    padding: 1em;
+}
+
+.emergency {
+    /* margin-top: -0.3em; */
+    /* padding: 13em; */
+    width: 27em;
+    background: red;
+    font-size: 5em;
+}
+
+.noodnummer {
+    margin-top: 5em;
+}
+
+.locatie {
+    font-size: 0.9em;
+}
+
+.send {
+    width: 1em;
+}
+
+.message {
+    display: flex;
+    width: 40em;
+    margin-top: 30em;
+    /* margin-left: 2em; */
+}
+
+.doctext {
+    width: 15em;
+    padding: 0.3em;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.doctext p {
+    color: white;
+    background: lightseagreen;
+    padding: 0.3em;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: -3.4em;
+    margin-left: 3em;
+}
+
+.doctext img {
+    width: 3em;
+}
+
+.usertext {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 3em;
+    width: 15em;
+    padding: 0.3em;
+    border-radius: 5px 5px 5px 5px;
+    margin-left: 13em;
+    margin-top: 3em;
+}
+
+.usertext p {
+    color: white;
+    background: rgb(2, 105, 100);
+    padding: 0.3em;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: -3.4em;
+    margin-left: -10em;
+    margin-right: 5em;
+    width: 12em;
+}
+
+.usertext img {
+    width: 3em;
+    height: 3em;
+    margin-top: -3.5em;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+.ui-header .ui-title {
+    font-size: 1.5em;
+    margin: 0;
+    width: 100%;
+}
+
+.form {
+    width: 8em;
+}
+
+.multiline {
+    height: 10em;
+}
+
+.text h2 {
+    margin-left: 4em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: lightseagreen;
+    padding: 1em;
+    width: 8em;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+}
+
+.text h3 {
+    margin-left: 2.5em;
+}
+
+.header a {
+    padding: 1em;
+}
+
+.ui-bar a{
+    width: 5em;
+}
+
+p {
+    color: black;
+}
+
+.avatars img {
+	width:64px;
+	height:72px;
+	background-image:url(../img/face_avatars_full_2.png);
+}
+
+.employee {
+    margin-top: -4em;
+    margin-left: -5em;
+	width:64px;
+	height:72px;
+	background-image:url(../img/face_avatars_full_2.png);
+	background-position:-98px 0;
+	float:right;
+}
+
+.avatar1{
+	background-position:-20px 0;
+}
+.avatar2{
+	background-position:-96px 0;
+}
+.avatar3{
+	background-position: -166px 0;
+}
+.avatar4{
+	background-position: -241px 0;
+}
+.avatar5{
+	background-position: -537px 0;
+}
+.avatar6{
+	background-position: -535px -74px;
+}
+.avatar7{
+	background-position: -389px -74px;
+}
+.avatar8{
+	background-position: -168px -148px;
+}
+.avatar9{
+	background-position: 85px -149px;
+}
+.avatar10{
+	background-position: -94px -225px;
+}
+.avatar11{
+	background-position: -19px -223px;
+}
+.avatar12{
+	background-position: -165px -223px;
+}
+
+.ui-content li.rightChat a.ui-btn{
+	margin-left:40%;
+	margin-bottom:15px;
+	border-radius:20px;
+	background-color:rgba(120,155,163,1.00);
+}
+.ui-content li.leftChat a.ui-btn{
+	margin-right:40%;
+	border-radius:20px;
+	margin-bottom:15px;
+	background-color:rgba(164,193,203,1.00);
+}
+.ui-content li.leftChat p img {
+	margin-top: 20px;
+	margin-right: 20px;
+}
+
+[data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;}
